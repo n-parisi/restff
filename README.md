@@ -6,4 +6,8 @@ The entities package contains DB entities and corresponding repositories and con
 
 The ESPN package contains classes for getting and parsing JSON from the ESPN API.
 
-Build with `./mvnw clean install` on linux using Maven wrapper. Run with `java -jar` on jar file in target directory. 
+Build with `./mvnw clean install` on linux using Maven wrapper. Run with `java -jar` on jar file in target directory.
+
+Available routes:
+/teams            List all teams 
+/team/{id}        List roster for team with given ID for week 8

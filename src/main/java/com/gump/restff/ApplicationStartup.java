@@ -32,6 +32,11 @@ public class ApplicationStartup
 
         List<Team> teams = EspnApi.getTeams();
         teamRepository.saveAll(teams);
+
+        for (Team team : teams) {
+            List<Player> players = EspnApi.getPlayers(team, 8);
+            playerRepository.saveAll(players);
+        }
     }
 
 }

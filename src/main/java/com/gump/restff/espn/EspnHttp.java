@@ -15,17 +15,26 @@ class EspnHttp {
 
     private EspnHttp() {}
 
-    public static JSONArray getPlayers() {
+    public static JSONArray getRosterForWeek(Long teamId, int week) {
         try {
-           HttpResponse<JsonNode> response = Unirest.get(API_ROOT +"playerInfo")
+           HttpResponse<JsonNode> response = Unirest.get(API_ROOT +"boxscore")
                     .queryString("leagueId", LEAGUE_ID)
                     .queryString("seasonId", SEASON_ID)
+                    .queryString("teamId", teamId)
+                    .queryString("matchupPeriodId", week)
                     .asJson();
 
             JSONObject root = response.getBody().getObject();
-            JSONArray players = root.getJSONObject("playerInfo").getJSONArray("players");
+            JSONArray teams = root.getJSONObject("boxscore").getJSONArray("teams");
+            for (int i = 0; i < teams.length(); i++) {
+                JSONObject team = teams.getJSONObject(i);
 
-           return players;
+                if (team.getInt("teamId") == teamId.intValue()) {
+                    return team.getJSONArray("slots");
+                }
+            }
+
+            return new JSONArray();
         } catch (UnirestException e) {
             e.printStackTrace();
             return new JSONArray();

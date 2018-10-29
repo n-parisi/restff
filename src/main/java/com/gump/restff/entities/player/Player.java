@@ -10,6 +10,7 @@ public class Player {
     private Long id;
     private String name;
     private String position;
+    private Double latestScore;
     @ManyToOne
     private Team team;
 
@@ -37,5 +38,13 @@ public class Player {
 
     public Team getTeam() {
         return team;
+    }
+
+    public Double getLatestScore() {
+        return latestScore;
+    }
+
+    public void setLatestScore(Double latestScore) {
+        this.latestScore = latestScore;
     }
 }
