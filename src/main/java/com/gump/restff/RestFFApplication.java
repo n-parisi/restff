@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RestffApplication {
+public class RestFFApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestffApplication.class, args);
+		SpringApplication.run(RestFFApplication.class, args);
 	}
 }
