@@ -4,4 +4,6 @@ An embedded H2 database is populated with objects parsed from an undocumented ES
 
 The entities package contains DB entities and corresponding repositories and controllers. Repositories act as database access objects. Controllesr provide the routes for the REST API. 
 
-The ESPN package contains classes for getting and parsing JSON from the ESPN API. 
+The ESPN package contains classes for getting and parsing JSON from the ESPN API.
+
+Build with `./mvnw clean install` on linux using Maven wrapper. Run with `java -jar` on jar file in target directory. 
